@@ -1,27 +1,3 @@
-// import { createSlice } from '@reduxjs/toolkit';
-
-// const initialState = {
-//   paymentType: 'prepaid',
-//   contractNumber: '',
-//   dateProtocol: '',
-//   selectedSupplier: null,
-// };
-
-// const contractSlice = createSlice({
-//   name: 'contract',
-//   initialState,
-//   reducers: {
-//     setContractData(state, action) {
-//       return { ...state, ...action.payload };
-//     },
-//   },
-// });
-
-// export const { setContractData } = contractSlice.actions;
-
-// export default contractSlice.reducer;
-
-// redux/contractSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 import DataSygnatory from '../assets/DataSygnatory.json';
 
@@ -113,6 +89,14 @@ const contractSlice = createSlice({
         // Находим подписанта по филиалу
         const supplier = DataSygnatory.find((s) => s.city === branch);
         updatedData.selectedSupplier = supplier || null;
+      }
+
+      if (updatedData.contractNumber.includes('ПП/')) {
+        updatedData.paymentType = 'postpaid'; // Устанавливаем "постоплата"
+      } else if (updatedData.contractNumber.includes('ПО/')) {
+        updatedData.paymentType = 'prepaid'; // Устанавливаем "предоплата"
+      } else {
+        updatedData.paymentType = 'postpaid'; 
       }
 
       return updatedData;

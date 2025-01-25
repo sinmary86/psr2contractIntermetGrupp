@@ -35,7 +35,7 @@ const ContractInfo = ({ suppliers = [] }) => {
       <div className="flex items-center gap-4">
         <h2 className="text-xl font-bold">ДОГОВОР:</h2>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 hidden-section">
           <label className="text-sm font-medium">Тип оплаты:</label>
           <select
             name="paymentType"
@@ -55,7 +55,7 @@ const ContractInfo = ({ suppliers = [] }) => {
             name="contractNumber"
             value={contract.contractNumber}
             onChange={handleChangeContract}
-            className="border rounded p-2"
+            className="border rounded p-2 w-72"
           />
         </div>
 
