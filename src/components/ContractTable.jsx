@@ -37,7 +37,7 @@ const ContractTable = ({ paymentType }) => {
   // Добавление новой строки
   const handleAddRowBelow = (id) => {
     const newRow = {
-      id: rows.length + 1,
+      id: Date.now(),
       section: '',
       supplier: 'по тексту договора',
       supplierOptions: ['по тексту договора', 'по тексту договора отсутствует'],

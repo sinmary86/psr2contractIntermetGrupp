@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   name: '',
-  representative: '',
+  position: '',  
+  surname: ''
 };
 
 const buyerSlice = createSlice({
